@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  web:
+
+    image: app:0.115
+
+    build:
+
+      context: .
+
+      dockerfile: Dockerfile
+
+    ports:
+
+      - "8000:8000"
+
+    volumes:
+
+      - .:/app 

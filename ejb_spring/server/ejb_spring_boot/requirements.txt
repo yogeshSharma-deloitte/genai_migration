@@ -1,0 +1,16 @@
+# common
+Django==4.2
+django-cors-headers==3.14.0
+djangorestframework==3.14.0
+python-dotenv
+requests==2.31.0
+drf-yasg
+python-decouple
+langchain==0.0.249
+unstructured==0.9.0
+openai==0.27.8
+termcolor==2.3.0
+jinja2
+GitPython==3.1.18
+from-root
+markdown

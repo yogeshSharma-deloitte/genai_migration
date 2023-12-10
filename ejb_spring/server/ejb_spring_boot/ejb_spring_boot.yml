@@ -1,0 +1,108 @@
+swagger: '2.0'
+info:
+  title: EJB To Spring Boot Migration
+  description: EJB to Spring boot Migration
+  version: v1
+host: localhost:8000
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+- Basic: []
+paths:
+  /ejb-springboot/migrate:
+    options:
+      operationId: ejb_spring_boot_migrate_cors
+      x-google-backend:
+        address: https://ejb-springboot-preprod-urtjok3rza-wl.a.run.app/ejb-springboot/migrate_ejb_project
+      responses:
+        '200':
+          description: A successful response
+    post:
+      operationId: ejb-springboot-migrate
+      description: Migrates EJB application to Spring Boot.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          required:
+          - applicationName
+          - X-GEN-API-KEY
+          - packageName
+          - ejbRepoUrl
+          - springBootRepoUrl
+          - gitUserName
+          - gitEmail
+          - productId
+          - branchName
+          
+          type: object
+          properties:
+            applicationName:
+              type: string
+            X-GEN-API-KEY:
+              type: string
+            packageName:
+              type: string
+            ejbRepoUrl:
+              type: string
+            springBootRepoUrl:
+              type: string
+            gitUserName:
+              type: string
+            gitEmail:
+              type: string
+            productId:
+              type: integer 
+            branchName:
+              type: string  
+              
+      responses:
+        '201':
+          description: 'Successful'    
+      tags:
+      - EJB_Springboot_migrate
+      x-google-backend:
+        address: https://ejb-springboot-preprod-urtjok3rza-wl.a.run.app/ejb-springboot/migrate_ejb_project
+        deadline: 600
+  /ejb-springboot/status:
+    options:
+      operationId: ejb_spring_boot_status_list_cors
+      x-google-backend:
+        address: https://ejb-springboot-preprod-urtjok3rza-wl.a.run.app/ejb-springboot/status
+      responses:
+        '200':
+          description: A successful response
+    post:
+      operationId: ejb_spring_boot_status_list
+      description: Retrieves the current status of a migration request.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          required:
+          - productId
+          - createdBy
+          
+          type: object
+          properties:
+            productId:
+              type: integer
+            createdBy:
+              type: string            
+        '200':
+          description: 'Successful'
+      tags:
+      - status
+      x-google-backend:
+        address: https://ejb-springboot-preprod-urtjok3rza-wl.a.run.app/ejb-springboot/status
+        deadline: 600
+definitions: {}

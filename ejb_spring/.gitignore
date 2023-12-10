@@ -1,0 +1,13 @@
+# Python bytecode (compiled files)
+*.pyc
+
+# Environments
+.venv
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+
+.idea/
+
